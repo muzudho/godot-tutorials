@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Message.gd" type="Script" id=1]
+[ext_resource path="res://Game/GameoverButton.gd" type="Script" id=2]
+[ext_resource path="res://Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://Game/Timer.gd" type="Script" id=4]
+[ext_resource path="res://Assets/NotoSansCJKjp-hinted/NotoSansCJKjp-Regular.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 5 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 121.688
+margin_top = 38.573
+margin_right = 297.688
+margin_bottom = 63.573
+rect_scale = Vector2( 5, 5 )
+custom_fonts/font = SubResource( 1 )
+text = "ここはゲーム画面です。"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+margin_left = 50.6089
+margin_top = 562.184
+margin_bottom = 576.184
+rect_scale = Vector2( 10, 10 )
+custom_fonts/font = SubResource( 2 )
+text = "モウスグ ボス"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameoverButton" type="Button" parent="."]
+margin_left = 257.597
+margin_top = 1077.43
+margin_right = 381.597
+margin_bottom = 1108.43
+rect_scale = Vector2( 5, 5 )
+custom_fonts/font = SubResource( 3 )
+text = "ゲームオーバー"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource( 4 )
+[connection signal="pressed" from="GameoverButton" to="Timer" method="_on_GameoverButton_pressed"]
+[connection signal="pressed" from="GameoverButton" to="Message" method="_on_GameoverButton_pressed"]
+[connection signal="pressed" from="GameoverButton" to="GameoverButton" method="_on_GameoverButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
