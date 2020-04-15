@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Message.gd" type="Script" id=1]
+[ext_resource path="res://Game/GameoverButton.gd" type="Script" id=2]
+[ext_resource path="res://Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://Game/Timer.gd" type="Script" id=4]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 180.688
+margin_top = 28.573
+margin_right = 322.688
+margin_bottom = 42.573
+rect_scale = Vector2( 5, 5 )
+text = "Koko ha Game Gamen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+margin_left = 50.6089
+margin_top = 562.184
+margin_right = 150.609
+margin_bottom = 576.184
+rect_scale = Vector2( 10, 10 )
+text = "Mousugu BOSS!"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameoverButton" type="Button" parent="."]
+margin_left = 348.456
+margin_top = 1136.16
+margin_right = 433.456
+margin_bottom = 1156.16
+rect_scale = Vector2( 5, 5 )
+text = "Game Over"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource( 4 )
+[connection signal="pressed" from="GameoverButton" to="Timer" method="_on_GameoverButton_pressed"]
+[connection signal="pressed" from="GameoverButton" to="Message" method="_on_GameoverButton_pressed"]
+[connection signal="pressed" from="GameoverButton" to="GameoverButton" method="_on_GameoverButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

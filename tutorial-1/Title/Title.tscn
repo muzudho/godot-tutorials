@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Title/Title.gd" type="Script" id=3]
+
+[node name="Title" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TitleLabel" type="Label" parent="."]
+margin_left = 95.2261
+margin_top = 303.363
+margin_right = 195.226
+margin_bottom = 317.363
+rect_scale = Vector2( 9, 9 )
+text = "Nihongo de OK!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubTitle" type="Label" parent="."]
+margin_left = 111.551
+margin_top = 436.68
+margin_right = 258.551
+margin_bottom = 450.68
+rect_scale = Vector2( 6, 6 )
+text = "~ Omaera no Tutorial ~"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 346.895
+margin_top = 957.703
+margin_right = 387.895
+margin_bottom = 977.703
+rect_scale = Vector2( 10, 10 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 352.337
+margin_top = 1235.22
+margin_right = 393.337
+margin_bottom = 1255.22
+rect_scale = Vector2( 10, 10 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
